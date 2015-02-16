@@ -7,7 +7,7 @@ module Puppet::Parser::Functions
     raise(Puppet::ParseError, "openldap_password(): Wrong number of arguments given") if args.size < 1 or args.size > 2
 
     secret = args[0]
-    command = ['slappasswd', '-s', secret]
+    command = ['/sbin/slappasswd', '-s', secret]
     scheme = args[1] if args[1]
     command << ['-h', scheme] if scheme
 
